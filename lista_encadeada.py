@@ -51,27 +51,39 @@ class LinkList:
             raise IndexError("list index out of range") 
 
     # Inserir elemento no início da lista
-    def insert_beginning(elem):
+    def insert_beginning(self, elem):
         pointer = self.head
-        for i in range(index):
-            if pointer:
-                pointer = pointer.next
-            else:
-                raise IndexError("list index out of range")   
+        self.head = Node(elem)
+        self.head.next = pointer
+    
+    # Inserir elemento no final da lista
+    def insert_end(self, elem):
+        pointer = self.head
         if pointer:
-            pointer.data = elem
+            while(pointer.next):
+                pointer = pointer.next
+            pointer.next = Node(elem)
         else:
-            raise IndexError("list index out of range") 
+            self.head = Node(elem)
 
 
 
 
+## Teste
 
+lista = LinkList()
 
-""" insert_beginning(value) — inserir elemento no início da lista
-insert_end(value) — inserir elemento no final da lista
-remove(value) — remover um elemento da lista
-search(value) — buscar um elemento na lista
-print_list() — imprimir os elementos da lista
-size() — retornar o tamanho da lista
-is_empty() — verificar se a lista está vazia """
+lista.append(3)
+lista.append(5)
+lista.append(6)
+
+# print("Tamanho da lista:", len(lista))
+# print("Item de index 2 da lista", lista[2])
+# lista[2] = 10
+# print("Novo Item de index 2 da lista", lista[2])
+
+lista.insert_beginning(20)
+lista.insert_end(10)
+
+for i in lista:
+    print(i)
