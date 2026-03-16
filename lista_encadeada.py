@@ -59,7 +59,7 @@ class LinkList:
         self.head.next = pointer
         self._size = self._size + 1
     
-    # Inserir elemento no final da lista
+    # Inserir elemento no final da lista -- tale
     def insert_end(self, elem):
         pointer = self.head
         if pointer:
